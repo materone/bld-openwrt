@@ -92,7 +92,9 @@ jobs:
       with:
         name: OpenWrt_bin
         path: openwrt/bin
-
+    - name: Last SSH connection to Actions
+      uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true'
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
